@@ -15,14 +15,7 @@ df = pd.read_csv('juego_ml.csv').drop('Unnamed: 0',axis=1) #Abro el csv de los j
 df2= pd.read_csv('review_ml.csv') #Abro el csv de las reseñas para ML
 @app.get("/")
 def idex():
-	return {'Mensaje': 'Bienvenidos a mi API. Mi nombre es Fabrizio Mazzucco', 
-			'Primer endpoint': 'http://127.0.0.1:8000/PlayTimeGenre/Genero_deseado',
-			'Segundo endpoint': 'http://127.0.0.1:8000/UserForGenre/Usuario_deseado',
-			'Tercer endpoint': 'http://127.0.0.1:8000/UsersRecommend/Anio_deseado',
-			'Cuarto endpoint': 'http://127.0.0.1:8000/UsersNotRecommend/Anio_deseado',
-			'Quinto endpoint': 'http://127.0.0.1:8000/Sentiment_Analysis/Anio_deseado',
-			'Modelo de recomendacion por juego': 'http://127.0.0.1:8000/recomendacion_juego/Id_juego',
-			'Modelo de recomendacion por usuario': 'http://127.0.0.1:8000/recomendacion_usuario/Id_usuario'}
+	return {'Mensaje': 'Bienvenidos a mi API. Mi nombre es Fabrizio Mazzucco'}
 @app.get("/PlayTimeGenre/{genero_deseado}")
 def PlayTimeGenre(genero_deseado:str):
     juegos_genero = juego[juego['genres'] == genero_deseado] # Filtra los juegos por el género deseado
