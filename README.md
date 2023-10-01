@@ -31,7 +31,9 @@ La herramienta utilizada fue: Scikit-Learn con las librerias: TfidfVectorizer, l
 Si ingresamos valores que no son por ejemplo donde debemos ingresar un año ingresamos el id de un usuario, el programa no va a funcionar, lo mismo por la falta de datos con valores inexistentes por ejemplo si queremos ingresar un año y no hay juegos o reseñas en ese año la consulta no va a andar. Para una mejor experiencia denle click en el "Dar formato al texto".
 
 Aqui dejo algunos ejemplos de datos que estan en los csv reducidos que podemos usar en los modelos de recomendación.
+
 Ejemplos de usuarios con juegos existentes en la tabla: SALTTHEW0UND, evcentric, doctr, GodLoveGuru, Ghoustik
+
 Ejemplos id de juegos: 359450, 761140, 643980, 670290, 767400
 
 Link de la API: https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com/
