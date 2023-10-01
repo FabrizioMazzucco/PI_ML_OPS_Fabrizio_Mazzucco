@@ -8,10 +8,10 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 nltk.download('vader_lexicon')
 app = FastAPI()
 #http://127.0.0.1:8000
-review=pd.read_csv('review_funciones.csv').drop('Unnamed: 0', axis=1) #Abrimos las reseñas
-juego=pd.read_csv('juego_funciones.csv').drop('Unnamed: 0', axis=1) #Abrimos los juegos
+review=pd.read_csv('review_funciones.csv') #Abrimos las reseñas
+juego=pd.read_csv('juego_funciones.csv') #Abrimos los juegos
 item=pd.read_csv('item_funciones.csv') #Abrimos los juegos por usuario
-df = pd.read_csv('juego_ml.csv').drop('Unnamed: 0',axis=1) #Abro el csv de los juegos para ML
+df = pd.read_csv('juego_ml.csv') #Abro el csv de los juegos para ML
 df2= pd.read_csv('review_ml.csv') #Abro el csv de las reseñas para ML
 @app.get("/")
 def idex():
