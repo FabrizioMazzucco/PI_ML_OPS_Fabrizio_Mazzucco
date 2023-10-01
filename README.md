@@ -1,7 +1,7 @@
-Introducción:
+*Introducción:*
 Este proyecto consiste en crear una API que utiliza un modelo de recomendación para Steam, una plataforma de videojuegos, basado en Machine Learning. El objetivo es crear un sistema de recomendación de videojuegos para usuarios.
 
-Pasos del proyecto:
+*Pasos del proyecto:*
 1. ETL
 Realizamos un proceso de ETL (Extracción, Transformación y Carga) en el que extrajimos datos de diferentes archivos json, los transformamos en csv y limpiamos segun nuestras necesidades. Existen 5 csv en este trabajo. Primero para las funciones utilizo 'item_funciones.csv' (los juegos con los que cuentan los usuarios y sus horas jugadas), 'juego_funciones.csv' (las especificaciones del juego como genero, precio, etc.) y 'review_funciones.csv' (la reseña que hizo un usuario acerca de un juego). Por ultimo los ultimos dos csv que utilizo para los modelos de recomendacion son 'review_ml.csv' y 'juego_ml.csv'. Aquí hay algo importante que aclarar y es que para un mejor funcionamiento de las funciones y del modelo por cuestiones de pc de bajo rendimiento para un mejor procesamiento y evitar problemas con la pc utilicé menos datos de los que los csv proporcionan esto hace que los modelos y las funciones no anden con cualquier dato que exista en los csv originales sino que andan con algunos datos existentes en los csv con el ETl hecho. La principal herramienta para esta tarea fue Python, librerias Pandas y Random.
 
@@ -27,7 +27,11 @@ Ejemplo de uso: 70 Si es un sistema de recomendación user-item:
 def recomendacion_usuario( id de usuario ): Ingresando el id de un usuario, deberíamos recibir una lista con 5 juegos recomendados para dicho usuario. Ejemplo de uso: 76561198030567998
 La herramienta utilizada fue: Scikit-Learn con las librerias: TfidfVectorizer, linear_kernel, cosine_similarity Tambien son consultables en la API
 
+*Recomendaciones*
+Si ingresamos valores que no son por ejemplo donde debemos ingresar un año ingresamos el id de un usuario, el programa no va a funcionar, lo mismo por la falta de datos con valores inexistentes por ejemplo si queremos ingresar un año y no hay juegos o reseñas en ese año la consulta no va a andar. Para una mejor experiencia denle click en el "Dar formato al texto".
 
-Aqui dejo algunos ejemplos de datos que estan en los csv reducidos que podemos usar en los modelos de recomendación
+Aqui dejo algunos ejemplos de datos que estan en los csv reducidos que podemos usar en los modelos de recomendación.
 Ejemplos de usuarios con juegos existentes en la tabla: SALTTHEW0UND, evcentric, doctr, GodLoveGuru, Ghoustik
 Ejemplos id de juegos: 359450, 761140, 643980, 670290, 767400
+
+Link de la API: https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com/
