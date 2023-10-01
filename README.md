@@ -18,7 +18,7 @@ def UsersNotRecommend( año : int ): Devuelve el top 3 de juegos MENOS recomenda
 
 def sentiment_analysis( año : int ): Según el año de lanzamiento, se devuelve una lista con la cantidad de registros de reseñas de usuarios que se encuentren categorizados con un análisis de sentimiento. Ejemplo de input: 2014. Nos devuelve cantidad de reseñas positivas, neutrales y negativas.
 
-Una vez que ya tenemos nuestra API local la subimos a Render creando asi una página web donde tenemos nuestra API con sus consultas en la nube. Utilizamos librerias Uvicorn y FastApi para la cración de la API, Render para subirla a la red y para las funciones Pandas y NLTK.
+Una vez que ya tenemos nuestra API local utilizando FastApi la subimos a Render creando asi una página web donde tenemos nuestra API con sus consultas en la nube. Utilizamos librerias Uvicorn y FastApi para la cración de la API, Render para subirla a la red y para las funciones Pandas y NLTK.
 
 3. EDA
 Realizamos un análisis exploratorio de datos con el objetivo de obtener insights, identificar patrones, tendencias y relaciones, y así tomar decisiones fundamentadas en base a la información obtenida. Intentando asi obtener alguna pista para crear nuestro modelo de ML. Las herramientas utilizadas fueron: Numpy, Pandas, Matplotlib, Wordcloud, NLTK.
@@ -30,10 +30,10 @@ def recomendacion_juego( id de producto ): Ingresando el id de producto, deberí
 Ejemplo de uso: 70. Nos devuelve id de juegos recomendados y el nombre de los juegos.
 
 def recomendacion_usuario( id de usuario ): Ingresando el id de un usuario, deberíamos recibir una lista con 5 juegos recomendados para dicho usuario. Ejemplo de uso: 76561198030567998. Nos devuelve id de juegos recomendados y el nombre de los juegos.
-La herramienta utilizada fue: Scikit-Learn con las librerias: TfidfVectorizer, linear_kernel, cosine_similarity Tambien son consultables en la API
+La herramienta utilizada fue: Scikit-Learn con las librerias: TfidfVectorizer, linear_kernel, cosine_similarity. Tambien son consultables en la API
 
 *Recomendaciones*
-Si ingresamos valores que no son por ejemplo donde debemos ingresar un año ingresamos el id de un usuario, el programa no va a funcionar, lo mismo por la falta de datos con valores inexistentes por ejemplo si queremos ingresar un año y no hay juegos o reseñas en ese año la consulta no va a andar. Para una mejor experiencia denle click en "Dar formato al texto". 
+Si ingresamos valores que no son por ejemplo donde debemos ingresar un año ingresamos el id de un usuario, el programa no va a funcionar, lo mismo por la falta de datos con valores inexistentes por ejemplo si queremos ingresar un año y no hay juegos o reseñas en ese año la consulta no va a andar. Para una mejor experiencia denle click en "Dar formato al texto". La API puede demorar un poco en cargar si hay muchos datos para procesar para la consulta asi que es comun que haya un tiempo de espera. 
 
 IMPORTANTE: las primeras 5 funciones usan algunos csv y los modelos de recomendacion usan otros csv para un mejor rendimiento del modelo y para optimizar lo que necesita cada función por lo que no tienen los mismos datos y que ande algún dato en las funciones no quiere decir que vaya a andar en los modelos de recomendacón y viceversa.
 
@@ -43,4 +43,10 @@ Ejemplos de usuarios con juegos existentes en la tabla: SALTTHEW0UND, evcentric,
 
 Ejemplos id de juegos: 359450, 761140, 643980, 670290, 767400
 
+*Links*
+
 Link de la API: https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com/
+
+Video explicativo: https://www.youtube.com/watch?v=7S7lbN0EPJU&t=7s
+
+Mi linkedin: www.linkedin.com/in/fabrizio-mazzucco-403b0825a
