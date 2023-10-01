@@ -15,14 +15,14 @@ df = pd.read_csv('juego_ml.csv') #Abro el csv de los juegos para ML
 df2= pd.read_csv('review_ml.csv') #Abro el csv de las reseñas para ML
 @app.get("/")
 def idex():
-	return {'Mensaje': 'Bienvenidos a mi API. Mi nombre es Fabrizio Mazzucco',
-            'Primer endpoint': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com/PlayTimeGenre/Genero_deseado',
-            'Segundo endpoint': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com/UserForGenre/Usuario_deseado',
-            'Tercer endpoint': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com/UsersRecommend/Anio_deseado',
-            'Cuarto endpoint': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com/UsersNotRecommend/Anio_deseado',
-            'Quinto endpoint': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com/Sentiment_Analysis/Anio_deseado',
-            'Modelo de recomendacion por juego': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com/recomendacion_juego/Id_juego',
-            'Modelo de recomendacion por usuario': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com/recomendacion_usuario/Id_usuario'}
+	return {'Mensaje': 'Bienvenidos a mi API. Mi nombre es Fabrizio Mazzucco. Para su uso solo tienen que copiar los links y en el ultimo / poner los valores que desean pero solo funciona con lo que dice, por ejemplo si dice genero no va a funcionar poniendo anio',
+            'Anio mas jugado del genero elegido': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com/PlayTimeGenre/Genero_deseado',
+            'Usuario que mas jugo el genero elegido': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com/UserForGenre/Genero_deseado',
+            'Juegos con mas resenias en el anio elegido': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com/UsersRecommend/Anio_deseado',
+            'Juegos con menos resenias en el anio elegido': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com/UsersNotRecommend/Anio_deseado',
+            'Cantidad de resenias positivas, neutrales y negativas en el anio elegido': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com/Sentiment_Analysis/Anio_deseado',
+            'Juegos similares al juego elegido': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com/recomendacion_juego/Id_juego',
+            'Recomendacion de juegos a usuarios': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com/recomendacion_usuario/Id_usuario'}
 @app.get("/PlayTimeGenre/{genero_deseado}")
 def PlayTimeGenre(genero_deseado:str):
     juegos_genero = juego[juego['genres'] == genero_deseado] # Filtra los juegos por el género deseado
@@ -32,7 +32,7 @@ def PlayTimeGenre(genero_deseado:str):
     tabla_completa['año'] = pd.to_datetime(tabla_completa['release_date']).dt.year# Convierte la columna 'release_date' en formato de fecha y extrae el año
     resumen_por_año = tabla_completa.groupby('año')['playtime_forever'].sum().reset_index() # Resumen: suma las horas jugadas por año
     año_mas_horas_jugadas = resumen_por_año[resumen_por_año['playtime_forever'] == resumen_por_año['playtime_forever'].max()] # Encuentra el año con más horas jugadas
-    return ('El anio donde mas se jugo', genero_deseado, 'es',int(año_mas_horas_jugadas['año'].values[0]))  # Devuelve el año con más horas jugadas como entero
+    return (genero_deseado, int(año_mas_horas_jugadas['año'].values[0]))  # Devuelve el año con más horas jugadas como entero
 
 @app.get("/UserForGenre/{genero_buscado}")
 def UserForGenre(genero_buscado:str):
@@ -77,7 +77,7 @@ def UsersNotRecommend(anio_deseado:str):
     bottom_3_item_id = bottom_3_item_id.reset_index()# Reinicia el índice del DataFrame resultante
     bottom_3_item_id = bottom_3_item_id.rename(columns={'recommend': 'count'}) # Renombra la columna 'recommend' a 'count'
     resultado_final = bottom_3_item_id.merge(juego, left_on='item_id', right_on='id', how='inner')[['item_id', 'title', 'count']] # Combina los datos de juegos peor recomendados con información del juego (nombre y otros detalles)
-    return (resultado_final.drop_duplicates().to_string(index=False)) # Imprime el resultado final sin duplicados y sin mostrar el índice
+    return (print(resultado_final.drop_duplicates().to_string(index=False))) # Imprime el resultado final sin duplicados y sin mostrar el índice
 
 @app.get("/Sentiment_Analysis/{anio}")
 def Sentiment_Analysis(anio:str):
