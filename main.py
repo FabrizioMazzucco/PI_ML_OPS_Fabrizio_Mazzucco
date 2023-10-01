@@ -77,7 +77,7 @@ def UsersNotRecommend(anio_deseado:str):
     bottom_3_item_id = bottom_3_item_id.reset_index()# Reinicia el índice del DataFrame resultante
     bottom_3_item_id = bottom_3_item_id.rename(columns={'recommend': 'count'}) # Renombra la columna 'recommend' a 'count'
     resultado_final = bottom_3_item_id.merge(juego, left_on='item_id', right_on='id', how='inner')[['item_id', 'title', 'count']] # Combina los datos de juegos peor recomendados con información del juego (nombre y otros detalles)
-    return (print(resultado_final.drop_duplicates().to_string(index=False))) # Imprime el resultado final sin duplicados y sin mostrar el índice
+    return (resultado_final.drop_duplicates().to_string(index=False)) # Imprime el resultado final sin duplicados y sin mostrar el índice
 
 @app.get("/Sentiment_Analysis/{anio}")
 def Sentiment_Analysis(anio:str):
