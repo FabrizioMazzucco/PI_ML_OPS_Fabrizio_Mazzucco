@@ -8,15 +8,15 @@ Realizamos un proceso de ETL (Extracción, Transformación y Carga) en el que ex
 2. Deployment de la API
 Creamos una API generando 5 funciones para que puedan ser consultadas:
 
-def PlayTimeGenre( genero : str ): Debe devolver año con mas horas jugadas para dicho género. Ejemplo de input: casual
+def PlayTimeGenre( genero : str ): Debe devolver año con mas horas jugadas para dicho género. Ejemplo de input: casual. Nos devuelve Genero y año
 
-def UserForGenre( genero : str ): Debe devolver el usuario que acumula más horas jugadas para el género dado y una lista de la acumulación de horas jugadas por año. Ejemplo de input: action
+def UserForGenre( genero : str ): Debe devolver el usuario que acumula más horas jugadas para el género dado y una lista de la acumulación de horas jugadas por año. Ejemplo de input: action. Nos devuelve el usuario, año y horas jugadas.
 
-def UsersRecommend( año : int ): Devuelve el top 3 de juegos MáS recomendados por usuarios para el año dado. (reviews.recommend = True y comentarios positivos/neutrales) Ejemplo de input: 2012
+def UsersRecommend( año : int ): Devuelve el top 3 de juegos MáS recomendados por usuarios para el año dado. (reviews.recommend = True y comentarios positivos/neutrales) Ejemplo de input: 2012. Nos devuelve id del juego, nombre del juego y cantidad de reseñas.
 
-def UsersNotRecommend( año : int ): Devuelve el top 3 de juegos MENOS recomendados por usuarios para el año dado. (reviews.recommend = False y comentarios negativos) Ejemplo de input: 2009
+def UsersNotRecommend( año : int ): Devuelve el top 3 de juegos MENOS recomendados por usuarios para el año dado. (reviews.recommend = False y comentarios negativos) Ejemplo de input: 2009. Nos devuelve id del juego, nombre del juego y cantidad de reseñas.
 
-def sentiment_analysis( año : int ): Según el año de lanzamiento, se devuelve una lista con la cantidad de registros de reseñas de usuarios que se encuentren categorizados con un análisis de sentimiento. Ejemplo de input: 2014
+def sentiment_analysis( año : int ): Según el año de lanzamiento, se devuelve una lista con la cantidad de registros de reseñas de usuarios que se encuentren categorizados con un análisis de sentimiento. Ejemplo de input: 2014. Nos devuelve cantidad de reseñas positivas, neutrales y negativas.
 
 Una vez que ya tenemos nuestra API local la subimos a Render creando asi una página web donde tenemos nuestra API con sus consultas en la nube. Utilizamos librerias Uvicorn y FastApi para la cración de la API, Render para subirla a la red y para las funciones Pandas y NLTK.
 
@@ -27,9 +27,9 @@ Realizamos un análisis exploratorio de datos con el objetivo de obtener insight
 Realizamos un modelo de Machine Learning para generar recomendaciones de juegos en base a los géneros del juego, calculando la similitud del coseno entre el género de un juego y del resto de juegos recomienda juegos de los mismos géneros. En el segundo modelo la metodología es revisar las reseñas y si ve que el usuario recomienda un juego le recomienda juegos parecidos utilizando también la similitud del coseno en los géneros del juego recomendado. Mi idea era crear un modelo utilizando otras columnas de la tabla como especificaciones, tags o precio pero por cuestiones de rendimiento no pude usarlas. Vuelvo a aclarar solo podemos usar los datos específicos de los csv procesados. El problema con los modelos es que estan todos los usuarios que reseñaron juegos pero no estan todos los juegos así que podemos ingresar un usuario existente pero el juego reseñado no existe en la tabla juegos por lo que no va a reseñar nada.  
 
 def recomendacion_juego( id de producto ): Ingresando el id de producto, deberíamos recibir una lista con 5 juegos recomendados similares al ingresado.
-Ejemplo de uso: 70 Si es un sistema de recomendación user-item:
+Ejemplo de uso: 70. Nos devuelve id de juegos recomendados y el nombre de los juegos.
 
-def recomendacion_usuario( id de usuario ): Ingresando el id de un usuario, deberíamos recibir una lista con 5 juegos recomendados para dicho usuario. Ejemplo de uso: 76561198030567998
+def recomendacion_usuario( id de usuario ): Ingresando el id de un usuario, deberíamos recibir una lista con 5 juegos recomendados para dicho usuario. Ejemplo de uso: 76561198030567998. Nos devuelve id de juegos recomendados y el nombre de los juegos.
 La herramienta utilizada fue: Scikit-Learn con las librerias: TfidfVectorizer, linear_kernel, cosine_similarity Tambien son consultables en la API
 
 *Recomendaciones*
