@@ -21,8 +21,8 @@ def idex():
             'Tercer endpoint': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com/UsersRecommend/Anio_deseado',
             'Cuarto endpoint': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com/UsersNotRecommend/Anio_deseado',
             'Quinto endpoint': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com/Sentiment_Analysis/Anio_deseado',
-            'Modelo de recomendacion por juego': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com//recomendacion_juego/Id_juego',
-            'Modelo de recomendacion por usuario': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com//recomendacion_usuario/Id_usuario'}
+            'Modelo de recomendacion por juego': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com/recomendacion_juego/Id_juego',
+            'Modelo de recomendacion por usuario': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com/recomendacion_usuario/Id_usuario'}
 @app.get("/PlayTimeGenre/{genero_deseado}")
 def PlayTimeGenre(genero_deseado:str):
     juegos_genero = juego[juego['genres'] == genero_deseado] # Filtra los juegos por el género deseado
