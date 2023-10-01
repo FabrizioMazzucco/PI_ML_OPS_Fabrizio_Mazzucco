@@ -15,7 +15,14 @@ df = pd.read_csv('juego_ml.csv') #Abro el csv de los juegos para ML
 df2= pd.read_csv('review_ml.csv') #Abro el csv de las reseñas para ML
 @app.get("/")
 def idex():
-	return {'Mensaje': 'Bienvenidos a mi API. Mi nombre es Fabrizio Mazzucco'}
+	return {'Mensaje': 'Bienvenidos a mi API. Mi nombre es Fabrizio Mazzucco',
+            'Primer endpoint': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com//PlayTimeGenre/Genero_deseado',
+            'Segundo endpoint': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com//UserForGenre/Usuario_deseado',
+            'Tercer endpoint': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com//UsersRecommend/Anio_deseado',
+            'Cuarto endpoint': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com//UsersNotRecommend/Anio_deseado',
+            'Quinto endpoint': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com//Sentiment_Analysis/Anio_deseado',
+            'Modelo de recomendacion por juego': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com//recomendacion_juego/Id_juego',
+            'Modelo de recomendacion por usuario': 'https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com//recomendacion_usuario/Id_usuario'}
 @app.get("/PlayTimeGenre/{genero_deseado}")
 def PlayTimeGenre(genero_deseado:str):
     juegos_genero = juego[juego['genres'] == genero_deseado] # Filtra los juegos por el género deseado
