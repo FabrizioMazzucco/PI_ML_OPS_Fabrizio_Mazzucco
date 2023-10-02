@@ -5,7 +5,7 @@
 <p align=center><img src=https://static.vecteezy.com/system/resources/previews/020/975/557/original/steam-logo-steam-icon-transparent-free-png.png><p>
 
 **Introducción:**
-Este proyecto consiste en crear una API que utiliza un modelo de recomendación para Steam, una plataforma de videojuegos, basado en Machine Learning. El objetivo es crear un sistema de recomendación de videojuegos para usuarios y crear unas funciones que realicen consultas para satisfacer las inquietudes de la empresa entregando asi un MVP (Minimun Viable Product que en español se traduce a Mínimo Producto Viable). Importante responder a la pregunta ¿Qué es una API? Una API (Interfaz de Programación de Aplicaciones) es como un camarero en un restaurante que toma tu pedido, lo comunica a la cocina y te sirve la comida; es un conjunto de reglas que permite a diferentes aplicaciones hablar entre sí y compartir información de manera organizada.
+Este proyecto consiste en crear una API que utiliza un modelo de recomendación para Steam, una plataforma de videojuegos, basado en Machine Learning. El objetivo es crear un sistema de recomendación de videojuegos para usuarios y crear unas funciones que realicen consultas para satisfacer las inquietudes de la empresa. Importante responder a la pregunta ¿Qué es una API? Una API (Interfaz de Programación de Aplicaciones) es como un camarero en un restaurante que toma tu pedido, lo comunica a la cocina y te sirve la comida; es un conjunto de reglas que permite a diferentes aplicaciones hablar entre sí y compartir información de manera organizada.
 
 **Pasos del proyecto:**
 1. *ETL*
@@ -46,7 +46,7 @@ La herramienta utilizada fue: Scikit-Learn con las librerias: TfidfVectorizer, l
 
 **Para finalizar**
 
-Aqui dejo algunos ejemplos de datos que estan en los csv reducidos que podemos usar en los modelos de recomendación, podemos usar otros usuarios y juegos que se encuentren en los csv de ML siempre y cuando sean compatibles los datos. También aclaramos que la API esta en construcción ya que el objetivo del trabajo era entregar el MVP(Mínimo Producto Viable) por lo que puede andar medio lenta y tener errores de estructura.
+Aqui dejo algunos ejemplos de datos que estan en los csv reducidos que podemos usar en los modelos de recomendación, podemos usar otros usuarios y juegos que se encuentren en los csv de ML siempre y cuando sean compatibles los datos. También aclaramos que la API esta en construcción por lo que puede andar medio lenta y tener errores en la estructura de visualización.
 
 Ejemplos de usuarios con juegos existentes en la tabla: SALTTHEW0UND, evcentric, doctr, GodLoveGuru, Ghoustik
 
