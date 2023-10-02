@@ -39,7 +39,7 @@ def recomendacion_usuario( id de usuario ): Ingresando el id de un usuario, debe
 La herramienta utilizada fue: Scikit-Learn con las librerias: TfidfVectorizer, linear_kernel, cosine_similarity Tambien son consultables en la API
 
 
-Aqui dejo algunos ejemplos de datos que estan en los csv reducidos que podemos usar en los modelos de recomendación
+*Aqui dejo algunos ejemplos de datos que estan en los csv reducidos que podemos usar en los modelos de recomendación*
 
 Ejemplos de usuarios con juegos existentes en la tabla: SALTTHEW0UND, evcentric, doctr, GodLoveGuru, Ghoustik
 
@@ -47,8 +47,8 @@ Ejemplos id de juegos: 359450, 761140, 643980, 670290, 767400
 
 Generos que podemos utilizar: Action, Casual, Indie, Simulation, Strategy, Free to Play, RPG, Sports, Adventure, nan, Racing, Early Access, Massively Multiplayer, Animation &amp; Modeling, Video Production, Utilities, Web Publishing, Education, Software Training, Design &amp; Illustration, Audio Production, Photo Editing, Accounting. IMPORTANTE: Hay generos que tal vez nos den error por la falta de datos.
 
-Link de la API s: https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com/
+*Link de la API*: https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com/
 
-Video explicativo: https://www.youtube.com/watch?v=7S7lbN0EPJU&t=7s
+*Video explicativo*: https://www.youtube.com/watch?v=7S7lbN0EPJU&t=7s
 
-Mi linkedin: www.linkedin.com/in/fabrizio-mazzucco-403b0825a
+*Mi linkedin*: www.linkedin.com/in/fabrizio-mazzucco-403b0825a
