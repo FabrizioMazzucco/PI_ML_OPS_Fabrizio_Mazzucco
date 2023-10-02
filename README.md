@@ -5,7 +5,7 @@
 <p align=center><img src=https://static.vecteezy.com/system/resources/previews/020/975/557/original/steam-logo-steam-icon-transparent-free-png.png><p>
 
 **Introducción:**
-Este proyecto consiste en crear una API que utiliza un modelo de recomendación para Steam, una plataforma de videojuegos, basado en Machine Learning. El objetivo es crear un sistema de recomendación de videojuegos para usuarios y crear unas funciones que realicen consultas para satisfacer las inquietudes de la empresa. Importante responder a la pregunta ¿Qué es una API? Una API (Interfaz de Programación de Aplicaciones) es como un camarero en un restaurante que toma tu pedido, lo comunica a la cocina y te sirve la comida; es un conjunto de reglas que permite a diferentes aplicaciones hablar entre sí y compartir información de manera organizada.
+Este proyecto consiste en crear una API que utiliza un modelo de recomendación para Steam, una plataforma de videojuegos, basado en Machine Learning. El objetivo es crear un sistema de recomendación de videojuegos para usuarios y crear unas funciones que realicen consultas para satisfacer las inquietudes de la empresa entregando asi un MVP (Minimun Viable Product que en español se traduce a Mínimo Producto Viable). Importante responder a la pregunta ¿Qué es una API? Una API (Interfaz de Programación de Aplicaciones) es como un camarero en un restaurante que toma tu pedido, lo comunica a la cocina y te sirve la comida; es un conjunto de reglas que permite a diferentes aplicaciones hablar entre sí y compartir información de manera organizada.
 
 **Pasos del proyecto:**
 1. *ETL*
@@ -20,9 +20,9 @@ def PlayTimeGenre(genero): Debe devolver año con mas horas jugadas para dicho g
 
 def UserForGenre(genero): Debe devolver el usuario que acumula más horas jugadas para el género dado y una lista de la acumulación de horas jugadas por año. 
 
-def UsersRecommend(año): Devuelve el top 3 de juegos Más reseñas por usuarios para el año dado.  
+def UsersRecommend(año): Devuelve el top 3 de juegos con más reseñas por usuarios para el año dado.  
 
-def UsersNotRecommend(año): Devuelve el top 3 de juegos Menos reseñas por usuarios para el año dado. 
+def UsersNotRecommend(año): Devuelve el top 3 de juegos con menos reseñas por usuarios para el año dado. 
 
 def sentiment_analysis(año): Se devuelve una lista con la cantidad de registros de reseñas
 de usuarios que se encuentren categorizados con un análisis de sentimiento en Positivas, Negativas y Neutrales. 
@@ -35,7 +35,7 @@ Realizamos un analisis exploratorio de datos con el objetivo de obtener insights
 
 4. *Modelo de Machine Learning*
 
-Realizamos un modelo de Machine Learning para generar recomendaciones de juegos en base a los géneros del juego, generando en cada juego un vector numéric opara la columna género y asi calculando la similitud del coseno entre el género de un juego y del resto de juegos para recomendar juegos de los mismos géneros ya que van a tener un vector muy similar entre ambos juegos. En el segundo modelo la metodología es revisar las reseñas y si ve que el usuario recomienda un juego utiliza el mismo modelo anterior sobre el juego recomendado. Mi idea era crear un modelo utilizando otras columnas de la tabla como especificaciones, tags o precio pero por cuestiones de rendimiento no pude usarlas. Vuelvo a aclarar solo podemos usar los datos específicos de los csv procesados. El problema con los modelos es que estan todos los usuarios que reseñaron juegos pero no estan todos los juegos así que podemos ingresar un usuario existente pero el juego reseñado no existe en la tabla juegos por lo que no va a reseñar nada.  
+Realizamos un modelo de Machine Learning para generar recomendaciones de juegos en base a los géneros del juego, generando en cada juego un vector numérico para la columna género y asi calculando la similitud del coseno entre el género de un juego y del resto de juegos para recomendar juegos de los mismos géneros ya que van a tener un vector muy similar entre ambos juegos. En el segundo modelo la metodología es revisar las reseñas y si ve que el usuario recomienda un juego utiliza el mismo modelo anterior sobre el juego recomendado. Mi idea era crear un modelo utilizando otras columnas de la tabla como especificaciones, tags o precio pero por cuestiones de rendimiento no pude usarlas. Vuelvo a aclarar solo podemos usar los datos específicos de los csv ya transformados. El problema con los modelos es que estan todos los usuarios que reseñaron juegos pero no estan todos los juegos así que podemos ingresar un usuario existente pero el juego reseñado no existe en la tabla juegos por lo que no va a reseñar nada.  
 
 def recomendacion_juego(id de producto): Ingresando el id de producto, deberíamos recibir una lista con 5 juegos recomendados similares al ingresado.
 
@@ -44,14 +44,14 @@ def recomendacion_usuario(id de usuario): Ingresando el id de un usuario, deber�
 
 La herramienta utilizada fue: Scikit-Learn con las librerias: TfidfVectorizer, linear_kernel, cosine_similarity Tambien son consultables en la API
 
-
-*Aqui dejo algunos ejemplos de datos que estan en los csv reducidos que podemos usar en los modelos de recomendación, podemos usar otros usuarios y juegos que se encuentren en los csv de ML siempre y cuando sean compatibles los datos*
+**Para finalizar**
+Aqui dejo algunos ejemplos de datos que estan en los csv reducidos que podemos usar en los modelos de recomendación, podemos usar otros usuarios y juegos que se encuentren en los csv de ML siempre y cuando sean compatibles los datos. También aclaramos que la API esta en construcción ya que el objetivo del trabajo era entregar el MVP(Mínimo Producto Viable) por lo que puede andar medio lenta y tener errores de estructura.
 
 Ejemplos de usuarios con juegos existentes en la tabla: SALTTHEW0UND, evcentric, doctr, GodLoveGuru, Ghoustik
 
 Ejemplos id de juegos: 359450, 761140, 643980, 670290, 767400
 
-Generos que podemos utilizar: Action, Casual, Indie, Simulation, Strategy, Free to Play, RPG, Sports, Adventure, nan, Racing, Early Access, Massively Multiplayer, Animation &amp; Modeling, Video Production, Utilities, Web Publishing, Education, Software Training, Design &amp; Illustration, Audio Production, Photo Editing, Accounting. IMPORTANTE: Hay generos que tal vez nos den error por la falta de datos.
+Generos que podemos utilizar: Action, Casual, Indie, Simulation, Strategy, Free to Play, RPG, Sports, Adventure, nan, Racing, Early Access, Massively Multiplayer, Animation &amp; Modeling, Video Production, Utilities, Web Publishing, Education, Software Training, Design &amp; Illustration, Audio Production, Photo Editing, Accounting. IMPORTANTE: Hay géneros que tal vez nos den error por la falta de datos.
 
 *Link de la API*: https://proyecto-ml-ops-fabrizio-mazzucco.onrender.com/
 
